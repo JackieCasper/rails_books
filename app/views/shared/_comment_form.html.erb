@@ -1,0 +1,11 @@
+<%= form_for(comment, :html => {:class => "form comment-info edit-comment", :id=> "#{comment.id}-form"}) do |f| %>
+  <div class="input-group">
+    <%= f.text_area :content, :placeholder => "Comment" %>
+    <%= render "shared/input_errors", {errors: flash["comment"] ? flash["comment"]["content"] : []} %>
+  </div>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :commentable_id %>
+  <%= f.hidden_field :commentable_type %>
+  <%= hidden_field_tag :book_id, @book.id %>
+  <%= f.submit %>
+<% end %>

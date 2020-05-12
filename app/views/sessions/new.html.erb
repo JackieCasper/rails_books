@@ -1,0 +1,15 @@
+<h1 class="page-title img-line third-bg">Log In</h1>
+
+<%= form_for(:session, url: login_path, :html => {:class => "form"}) do |f| %>
+  <div class="input-group">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <%= render "shared/input_errors", {errors: flash["user"] ? flash["user"]["email"] : []} %>
+  </div>
+  <div class="input-group">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= render "shared/input_errors", {errors: flash["user"] ? flash["user"]["password"] : []} %>
+  </div>
+  <%= f.submit "Log In" %>
+<% end %>

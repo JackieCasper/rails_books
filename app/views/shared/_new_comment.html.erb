@@ -1,0 +1,15 @@
+<div class="<%= comment.commentable_type == "Comment" ? "new-comment reply reply-#{comment.commentable_id}" : "new-comment" %>">
+  <img src=<%= @current_user.avatar %> alt="">
+  <%= form_for(comment, :html => {:class => "form comment-info"}) do |f| %>
+  <h3><%= @current_user.name %></h3>
+  <div class="input-group">
+    <%= f.text_area :content, :placeholder => "Comment" %>
+    <%= render "shared/input_errors", {errors: flash["comment"] ? flash["comment"]["content"] : []} %>
+  </div>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :commentable_id %>
+  <%= f.hidden_field :commentable_type %>
+  <%= hidden_field_tag :book_id, @book.id %>
+  <%= f.submit(comment.commentable_type == "Comment" ? "Reply" : "Comment") %>
+  <% end %>
+</div>

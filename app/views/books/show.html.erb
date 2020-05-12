@@ -1,0 +1,23 @@
+<h1 class="page-title img-line first-bg">Book</h1>
+<div class="show">
+    <div class="book-info info">
+        <h2 class="card-title"><%= @book.title %></h2>
+        <h4><%= link_to("By: #{@book.author.name}", @book.author) %></h4>
+        <p>Genre: <%= @book.genre %></p>
+        <p>Pages: <%= @book.pages %></p>
+        <div class="card-footer">
+            <div class="footer-buttons">
+                <%= link_to("✎", edit_book_path(@book), :class => "pop-button") %>
+                <%= button_to("✕", @book, method: :delete, :class=>"pop-button") %>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+      <h2 class="card-title">Comments</h2>
+      <div class="comments">
+        <%= render "shared/new_comment", { comment: @book_comment } %>
+        <%= render "shared/comments_info", { comments: @comments, reply: false } %>
+      </div>
+      <div class="card-footer">
+    </div>
+</div>

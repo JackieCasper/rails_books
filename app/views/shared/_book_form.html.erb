@@ -1,0 +1,30 @@
+<%= form_for(book, :html => {:class => "form"}) do |f| %>
+  <div class="input-group">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= render "shared/input_errors", {errors: flash["book"] ? flash["book"]["title"] : []} %>
+  </div>
+  <div class="input-group">
+      <%= f.label :author %>
+      <%= f.select(:author_id) do %>
+      <% @authors.each do |author| %>
+      <%= content_tag(:option, author.name, value: author.id) %>
+      <% end %>
+      <% end %>
+      <%= render "shared/input_errors", {errors: flash["book"] ? flash["book"]["author_id"] : []} %>
+  </div>
+  <div class="input-group">
+      <%= f.label :genre %>
+      <%= f.text_field :genre %>
+      <%= render "shared/input_errors", {errors: flash["book"] ? flash["book"]["genre"] : []} %>
+  </div>
+  <div class="input-group">
+      <%= f.label :pages %>
+      <%= f.number_field :pages %>
+      <%= render "shared/input_errors", {errors: flash["book"] ? flash["book"]["pages"] : []} %>
+  </div>
+
+  <p>Don't See the author you want? <%= link_to("Make a new one.", new_author_path) %></p>
+
+  <%= f.submit %>
+<% end %>

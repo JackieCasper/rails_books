@@ -1,0 +1,29 @@
+<h1 class="page-title img-line third-bg">Sign Up</h1>
+
+<%= form_for(@user, :html => {:class => "form"}) do |f| %>
+  <div class="input-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= render "shared/input_errors", {errors: flash["user"] ? flash["user"]["name"] : []} %>
+  </div>
+
+  <div class="input-group">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <%= render "shared/input_errors", {errors: flash["user"] ? flash["user"]["email"] : []} %>
+  </div>
+
+  <div class="input-group">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= render "shared/input_errors", {errors: flash["user"] ? flash["user"]["password"] : []} %>
+  </div>
+
+  <div class="input-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <%= render "shared/input_errors", {errors: flash["user"] ? flash["user"]["password_confirmation"] : []} %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

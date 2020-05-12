@@ -1,0 +1,9 @@
+<h1 class="page-title second-bg">Authors</h1>
+<div class="info-list">
+  <% @authors.each do |author| %>
+    <div class="author-info info">
+      <h2 class="card-title"><%= link_to(author.name, author) %></h2>
+      <%= render "shared/book_list", {books: author.books} %>
+    </div>
+  <% end %>
+</div>

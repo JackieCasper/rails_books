@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Book Club</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+      <h1>Book Club</h1>
+      <% if @logged_in %>
+        <div class="nav-links">
+          <%= link_to("Authors", authors_path) %>
+          <%= link_to("Books", books_path) %>
+          <%= link_to("New Author", new_author_path) %>
+          <%= link_to("New Book", new_book_path) %>
+          <%= link_to("Users", users_path) %>
+          <%= link_to("Profile", current_user) %>
+          <%= link_to("Logout", logout_path, :method => "delete") %>
+        </div>
+      <% else %>
+        <div class="nav-links">
+          <%= link_to("Log In", login_path) %>
+          <%= link_to("Sign Up", signup_path) %>
+        </div>
+      <% end %>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

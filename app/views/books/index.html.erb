@@ -1,0 +1,10 @@
+<h1 class="page-title first-bg">Books</h1>
+
+<div class="info-list">
+    <% @books.each do |book| %>
+    <div class="book-info info">
+        <h2 class="card-title"><%= link_to(book.title, book) %></h2>
+        <h4><%= link_to("By: #{book.author.name}", book.author) %></h4>
+    </div>
+    <% end %>
+</div>

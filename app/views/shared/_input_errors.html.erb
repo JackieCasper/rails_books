@@ -1,0 +1,7 @@
+<% if errors && errors.size > 0 %>
+  <ul class="input-errors">
+    <% errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>

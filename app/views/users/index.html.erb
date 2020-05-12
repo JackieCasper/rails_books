@@ -1,0 +1,15 @@
+<div class="page-title second-bg">
+  <h1>Users</h1>
+  <div class="info search-info">
+    <%= form_tag("/users/search", :remote=>true, :class => "search") do %>
+      <%= text_field_tag(:q, '', :placeholder => "Search") %>
+      <%= submit_tag("➔", :id => "submit", :class => "pop-button") %>
+    <% end %>
+  </div>
+</div>
+
+<div class="show">
+  <div class="info results">
+
+  </div>
+</div>

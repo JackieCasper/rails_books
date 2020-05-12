@@ -1,0 +1,18 @@
+<%= form_for(author, :html => {:class => "form"}) do |f| %>
+  <div class="input-group"> 
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= render "shared/input_errors", {errors: flash["author"] ? flash["author"]["name"] : []} %>
+  </div>
+  <div class="input-group">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+      <%= render "shared/input_errors", {errors: flash["author"] ? flash["author"]["email"] : []} %>
+  </div>
+  <div class="input-group">
+    <%= f.label :email_confirmation %>
+    <%= f.email_field :email_confirmation, :value => author.email %>
+      <%= render "shared/input_errors", {errors: flash["author"] ? flash["author"]["email_confirmation"] : []} %>
+  </div>
+  <%= f.submit %>
+<% end %>
